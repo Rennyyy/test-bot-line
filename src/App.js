@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import liff from '@line/liff';
-import { useState,useEffect } from 'react';
+import React , { useEffect, useState } from 'react';
 
 function App() {
 
   const [pictureUrl, setPictureUrl] = useState(logo);
-  const [idToken, setIdtoken] = useState('');
+  const [idToken, setIdToken] = useState('');
+  const [displayName, setDisplayName] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
   const [userId, setUserId] = useState('');
-  const [displayName, setDisplayName] = useState('');
 
   const logout = () => {
     liff.logout();
@@ -19,16 +19,16 @@ function App() {
   const initLine = () => {
     liff.init({ liffId: '1657241582-AEmxzpJE' }, () => {
       if (liff.isLoggedIn()) {
-        this.runApp();
+        runApp();
       } else {
         liff.login();
       }
     }, err => console.error(err));
   }
 
-  const runApp = () =>  {
+  const runApp = () => {
     const idToken = liff.getIDToken();
-    setIdtoken(idToken);
+    setIdToken(idToken);
     liff.getProfile().then(profile => {
       console.log(profile);
       setDisplayName(profile.displayName);
@@ -40,26 +40,22 @@ function App() {
 
   useEffect(() => {
     initLine();
-    runApp();
-  },[]);
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        
-        <div style={{textalign: "center"}}>
-        <h1>Angular with LINE Login</h1>
+      <div style={{ textAlign: "center" }}>
+        <h1>React with LINE Login test bot1</h1>
         <hr/>
-        
-        <img src ={pictureUrl} width="300px" height="300px"/>
-        <p style= {{textalign: "left", marginleft: "20%"}}><b>id token: </b> {{ idToken }}</p>
-        <p style= {{textalign: "left", marginleft: "20%"}}><b>display name: </b> {{ displayName }}</p>
-        <p style= {{textalign: "left", marginleft: "20%"}}><b>status message: </b> {{ statusMessage }}</p>
-        <p style= {{textalign: "left", marginleft: "20%"}}><b>user id: </b> {{ userId }}</p>
+        <img src={pictureUrl} width="300px" height="300px" alt=""/>
+        <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>id token: </b> {idToken}</p>
+        <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>display name: </b> {displayName}</p>
+        <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>status message: </b> {statusMessage}</p>
+        <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>user id: </b> {userId}</p>
 
-        <button onclick={() => logout()} style="width: 100%; height: 30px;">Logout</button>
-        </div>
-        
+        <button onClick={() => logout()} style={{ width: "100%", height: 30 }}>Logout</button>
+      </div>
       </header>
     </div>
   );
