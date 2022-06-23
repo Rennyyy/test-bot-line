@@ -9,7 +9,7 @@ function App() {
   const [idToken, setIdToken] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
-  const [userId, setUserId] = useState('');
+  const [lineId, setLineId] = useState('');
 
   const logout = () => {
     liff.logout();
@@ -34,7 +34,7 @@ function App() {
       setDisplayName(profile.displayName);
       setPictureUrl(profile.pictureUrl);
       setStatusMessage(profile.statusMessage);
-      setUserId(profile.userId);
+      setLineId(profile.userId);
     }).catch(err => console.error(err));
   }
 
@@ -52,7 +52,7 @@ function App() {
         <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>id token: </b> {idToken}</p>
         <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>display name: </b> {displayName}</p>
         <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>status message: </b> {statusMessage}</p>
-        <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>user id: </b> {userId}</p>
+        <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>user id: </b> {lineId}</p>
 
         <button onClick={() => logout()} style={{ width: "100%", height: 30 }}>Logout</button>
       </div>
