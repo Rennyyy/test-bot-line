@@ -13,7 +13,7 @@ function App() {
 
   const logout = () => {
     liff.logout();
-    window.location.reload();
+    window.location.href="http://localhost:3000/profile";
   }
 
   const initLine = () => {
