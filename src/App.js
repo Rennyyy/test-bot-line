@@ -46,15 +46,15 @@ function App() {
     <div className="App">
       <header className="App-header">
       <div style={{ textAlign: "center" }}>
-        <h1>React with LINE Login test bot1</h1>
+        <h1>Profile LINE </h1>
         <hr/>
         <img src={pictureUrl} width="300px" height="300px" alt=""/>
-        <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>id token: </b> {idToken}</p>
+        {/* <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>id token: </b> {idToken}</p> */}
         <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>display name: </b> {displayName}</p>
         <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>status message: </b> {statusMessage}</p>
         <p style={{ textAlign: "left", marginLeft: "20%", marginRight: "20%", wordBreak: "break-all" }}><b>user id: </b> {lineId}</p>
 
-        <button onClick={() => logout()} style={{ width: "100%", height: 30 }}>Logout</button>
+        <button onClick={() => logout()} style={{ width: "100%", height: 60 }}>Logout</button>
       </div>
       </header>
     </div>
